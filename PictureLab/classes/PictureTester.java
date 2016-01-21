@@ -59,11 +59,11 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    //testKeepOnlyBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    testNegate();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
@@ -81,4 +81,64 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
   }
+  
+  public void ZeroBlue()
+  {
+    Pixel[][]pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels)
+    {
+        for(Pixel pixelObj : rowArray)
+        {
+            pixelObj.setBlue(0);
+        }
+    }
+  }
+  
+  public void KeepOnlyBlue()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] rowArray : pixels)
+      {
+          for(Picel pixelObj : rowArray)
+          {
+              pixelObj.setGreen(0);
+              pixelObj.setRed(0);
+          }
+      }
+  }
+  
+  public void negate()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] rowArray : pixels)
+      {
+          for(Pixel pixelObj : rowArray)
+          {
+              pixelObj.setGreen(255 - pixelObj.getGreen());
+              pixelObj.setRed(255 - pixelObj.getRed());
+              pixelObj.setBlue(255 - pixelObj.getBlue());
+          }
+        }
+  }
+  
+  public void grayscale()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] rowArray : pixels)
+      {
+          for(Pixel pixelObj : rowArray)
+          {
+              int ave = (pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue())/3;
+              pixelObj.setGreen(ave);
+              pixelObj.setRed(ave);
+              pixelObj.setBlue(ave);
+          }
+      }
+  }
+  
+  
+  
+  
+  
+  
 }

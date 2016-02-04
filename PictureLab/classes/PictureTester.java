@@ -26,6 +26,30 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testMirrorVertical2()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVertical2();
+    caterpillar.explore();
+  }
+  
+  public static void testMirrorHorizontal()
+  {
+      Picture beach = new Picture("beach.jpg");
+      beach.explore();
+      beach.mirrorHorizontal();
+      beach.explore();
+  }
+  
+  public static void testMirrorHorizontal2()
+  {
+      Picture beach = new Picture("beach.jpg");
+      beach.explore();
+      beach.mirrorHorizontal2();
+      beach.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -38,8 +62,8 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
+    Picture canvas = new Picture(600,1000);
+    canvas.createCollage("wow.jpg");
     canvas.explore();
   }
   
@@ -59,18 +83,21 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    testKeepOnlyBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
-    testGrayscale();
+    //testNegate();
+    //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    //testMirrorTemple();
+    testMirrorVertical2();
+    testMirrorTemple();
+    testMirrorHorizontal();
+    testMirrorHorizontal2();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
@@ -80,65 +107,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-  }
-  
-  public void ZeroBlue()
-  {
-    Pixel[][]pixels = this.getPixels2D();
-    for(Pixel[] rowArray : pixels)
-    {
-        for(Pixel pixelObj : rowArray)
-        {
-            pixelObj.setBlue(0);
-        }
     }
-  }
-  
-  public void KeepOnlyBlue()
-  {
-      Pixel[][] pixels = this.getPixels2D();
-      for(Pixel[] rowArray : pixels)
-      {
-          for(Picel pixelObj : rowArray)
-          {
-              pixelObj.setGreen(0);
-              pixelObj.setRed(0);
-          }
-      }
-  }
-  
-  public void negate()
-  {
-      Pixel[][] pixels = this.getPixels2D();
-      for(Pixel[] rowArray : pixels)
-      {
-          for(Pixel pixelObj : rowArray)
-          {
-              pixelObj.setGreen(255 - pixelObj.getGreen());
-              pixelObj.setRed(255 - pixelObj.getRed());
-              pixelObj.setBlue(255 - pixelObj.getBlue());
-          }
-        }
-  }
-  
-  public void grayscale()
-  {
-      Pixel[][] pixels = this.getPixels2D();
-      for(Pixel[] rowArray : pixels)
-      {
-          for(Pixel pixelObj : rowArray)
-          {
-              int ave = (pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue())/3;
-              pixelObj.setGreen(ave);
-              pixelObj.setRed(ave);
-              pixelObj.setBlue(ave);
-          }
-      }
-  }
-  
-  
-  
-  
-  
   
 }
